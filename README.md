@@ -1,7 +1,6 @@
 # Practice-Excercise
-/*
-*
-*  @@Author: Bùi Tiến Duy
-*
-*
-*/
+//
+//
+//  @@Author: Bùi Tiến Duy
+//
+//
