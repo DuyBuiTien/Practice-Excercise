@@ -1,15 +1,25 @@
-package edu.name.javabasic;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package FractorExercise;
 
-public class FractionExcercise {
+import java.util.Scanner;
+
+public class Fractor {
 	//Mau so
 	private int denominator;
-	
 	//Tu so
 	private int numerator;
 	
-	FractionExcercise(int de, int num){
-		this.denominator = de;
-		this.numerator = num;
+        Fractor(){
+            this.denominator = 0;
+            this.numerator = 0;
+        }
+	Fractor(int de, int num){
+            this.denominator = de;
+            this.numerator = num;
 	}
 
 	public int getDenominator() {
@@ -29,7 +39,6 @@ public class FractionExcercise {
 	}
 
 	public int findLeastCommonMultiple(int a, int b) {
-		int lcm = 0;
 		int max, step;
 		
 		if( a > b) {
@@ -50,10 +59,10 @@ public class FractionExcercise {
 	}
 	
 	public static int greatestCommonDivision(int a, int b) {
-    	if( a == 1 || b == 1) {
+            if( a == 1 || b == 1) {
     		return 1;
-    	}
-    	else {
+            }
+            else {
     		while( a != b ) {
     			if( a > b ) {
     				a = a - b;
@@ -62,27 +71,31 @@ public class FractionExcercise {
     				b = b -a;
     			}
     		}
-    		return a;
-    	}
-    }
+            return a;
+            }
+        }
 	
-	public int[] addFractor(int num1, int de1) {
-		int[] arrFractor = new int[2];
+	public Fractor addFractor(int num1, int de1) {
+		Fractor arrFractor = new Fractor(0, 0);
+                int de = 0;
+                int num = 0;
 		if( de1 == this.getDenominator()) {
-			arrFractor[0] = num1 + this.getNumerator();
-			arrFractor[1] = de1;
+			de = num1 + this.getNumerator();
+			num = de1;
 		}
 		else {
 			int generalDenominator = findLeastCommonMultiple(de1, this.getDenominator());
-			arrFractor[0] = (generalDenominator/de1)*num1 
+			de = (generalDenominator/de1)*num1 
 					+ (generalDenominator/this.getDenominator())*this.getNumerator();
-			arrFractor[1] = generalDenominator;
+			num = generalDenominator;
 		}
 		
+                arrFractor.setDenominator(de);
+                arrFractor.setNumerator(num);
 		return arrFractor;
 	}
 	
-	public int[] substractionFractor(int num1, int de1) {
+            public int[] substractionFractor(int num1, int de1) {
 		int[] arrFractor = new int[2];
 		if( de1 == this.getDenominator()) {
 			arrFractor[0] = Math.abs(num1 - this.getNumerator());
@@ -96,9 +109,9 @@ public class FractionExcercise {
 		}
 		
 		return arrFractor;
-	}
+            }
 	
-	public int[] multiplicationFractor(int num1, int de1) {
+	    public int[] multiplicationFractor (int num1, int de1) {
 		int[] arrFractor = new int[2];
 		arrFractor[0] = num1*(this.getNumerator());
 		arrFractor[1] = de1*(this.getDenominator());
@@ -108,22 +121,22 @@ public class FractionExcercise {
 		arrFractor[1] /= generalFractor;
 		
 		return arrFractor;
-	}
-	
-	public int[] divisionFractor(int num1, int de1) {
-		int[] arrFractor = new int[2];
-		arrFractor[0] = num1*(this.getNumerator());
-		arrFractor[1] = de1*(this.getDenominator());
-		
-		int generalFractor = greatestCommonDivision(arrFractor[0], arrFractor[1]);
-		arrFractor[0] /= generalFractor;
-		arrFractor[1] /= generalFractor;
-		
-		return arrFractor;
-	}
-	private void static main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
+            }
+            public int[] divisionFractor (int num1, int de1){
+                return multiplicationFractor (de1, num1);
+            }
+            
+            public boolean equals (Fractor f2){
+                if(this.getDenominator() % f2.getDenominator() == 0
+                    && this.getNumerator() % f2.getDenominator() == 0){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }    
+                
+            	
 	
 }
+		
