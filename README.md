@@ -1,6 +1,6 @@
 # Practice-Excercise
+/*
 //
+//  Author : Bui Tien Duy
 //
-//  @@Author: Bùi Tiến Duy
-//
-//
+*/
