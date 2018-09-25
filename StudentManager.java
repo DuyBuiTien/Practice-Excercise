@@ -9,8 +9,8 @@ public class StudentManager {
  * @author DuyBuiTien
  */
 
-	static Student [] studentGroup = new  Student[3];
-	
+	static Student [] studentGroup = new Student[3];
+	static Student [] data 	       = new Student[10];	
 	
     public static void main(String[] args) {
         
@@ -18,11 +18,8 @@ public class StudentManager {
     	
     	for(int i = 0; i < 3; ++i) {
     		studentGroup[i] = new Student();
-    	}
-    	
-    	for(int i = 0; i < 3; i++) {
-    		
-    		String name = scan.nextLine();
+		
+		String name = scan.nextLine();
     		String id = scan.nextLine();
     		String group = scan.nextLine();
     		String email = scan.nextLine();
@@ -31,8 +28,12 @@ public class StudentManager {
     		studentGroup[i].setID(id);
     		studentGroup[i].setGroup(group);
     		studentGroup[i].setEmail(email);
-    		
     	}
+	    
+	for(int i = 0; i < 10; i++){
+		data[i] = new Student();
+	
+	}
         
         scan.close();
         
